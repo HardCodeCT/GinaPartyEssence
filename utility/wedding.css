@@ -1,0 +1,126 @@
+/* General section styling */
+.wedding-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.75rem 5rem;
+  gap: 5rem;
+}
+
+.wedding-section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Default: Desktop 16:9 (base size) */
+.rectangle-image {
+  width: 25rem;       /* 16 units */
+  height: 14.0625rem; /* 9 units */
+  object-fit: cover;
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.25);
+}
+
+/* Content container */
+.content-container {
+  flex: 1;
+  max-width: 37.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+.content-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+.content-container p {
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: center;
+  color: #fff;
+}
+
+
+/* Mobile: 16:13 */
+@media (min-width: 600px) and (max-width: 900px) {
+  .wedding-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 1.25rem;
+    gap: 2.5rem;
+  }
+
+  .wedding-section:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .rectangle-image {
+    width: 32rem;       /* 16 units */
+    height: 16.25rem;   /* 13 units */
+border: 1px solid rgba(255, 255, 255, 0.6); /* thin, bright border */
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4); /* subtle glow */
+  }
+}
+
+
+
+
+/* Mobile: 16:13 */
+@media (max-width: 600px) {
+  .wedding-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 1.25rem;
+    gap: 2.5rem;
+  }
+
+  .wedding-section:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .rectangle-image {
+    width: 20rem;       /* 16 units */
+    height: 16.25rem;   /* 13 units */
+border: 1px solid rgba(255, 255, 255, 0.6); /* thin, bright border */
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4); /* subtle glow */
+  }
+}
+
+
+
+
+/* iPads / Nest Hub / Nest Hub Max (900px – 1366px): 25rem 16:9 */
+@media (min-width: 901px) and (max-width: 1366px) {
+  .rectangle-image {
+    width: 35rem;
+    height: 15.0625rem;
+    border: 1px solid rgba(255, 255, 255, 0.6); /* thin, bright border */
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4); /* subtle glow */
+  }
+}
+
+/* iPads / Nest Hub / Nest Hub Max (900px – 1366px): 25rem 16:9 */
+@media (min-width: 800px) and (max-width: 1150px) {
+  .rectangle-image {
+    width: 27rem;
+    height: 15.0625rem;
+    border: 1px solid rgba(255, 255, 255, 0.6); /* thin, bright border */
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4); /* subtle glow */
+  }
+}
+
+/* Larger Laptops / Desktops (>1300px): Bigger 16:9 */
+@media (min-width: 1367px) {
+  .rectangle-image {
+    width: 30rem;
+    height: 16.875rem;
+  }
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+   <link rel="icon" href="images/chefcap.png" type="image/png">
+   <link rel="stylesheet" type="text/css" href="gallery.css">
+<script src="galleryjs.js" defer></script>
+</head>
+
+
+<body>
+  <!-- Full-page background + dim overlay -->
+  <div class="background-image">
+    <div class="dim-overlay"></div>
+  </div>
+
+ <div class="topbar">
+  <div class="topbar-container">
+    <div class="contact-left">
+      <span class="contact-item">
+        <img src="images/mail.svg" alt="Email" class="contact-icon" />
+       ginapartyessence@gmail.com
+      </span>
+      <span class="contact-item">
+        <img src="images/phone.png" alt="Phone" class="contact-icon" />
+        +234 803 779 0070
+      </span>
+    </div>
+    <div class="social-right">
+      <img src="images/twitter.svg" alt="Twitter" class="social-icon" />
+      <img src="images/facebook.svg" alt="Facebook" class="social-icon" />
+      <img src="images/instagram.svg" alt="Instagram" class="social-icon" />
+    </div>
+  </div>
+</div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="images/chefcap.png" alt="Chef Cap" class="logo-icon" />
+        <div class="logo-text">
+          <div class="logo-title"><span>Gina</span> Party Essence</div>
+          <div class="logo-subtitle">Catering & Events</div>
+        </div>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+         <li><a href="index.html">Home</a></li>
+        <li><a href="booking.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+      </ul>
+
+      <div class="lang-book">
+      <button class="book-btn">Booking</button>
+    </div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+
+ 
+
+ 
+
+
+ <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+        <div class="lightbox-nav">
+            <button class="lightbox-prev" id="lightboxPrev">&#10094;</button>
+            <button class="lightbox-next" id="lightboxNext">&#10095;</button>
+        </div>
+    </div>
+
+    <section class="photo-showcase" aria-label="Event photo gallery">
+        <h2>Our Event Gallery</h2>
+        <div class="photo-grid">
+            <!-- PERFECT TESSELLATION: Each row = exactly 3 column units -->
+            
+            <!-- ROW 1: 3 regular images = 3 units -->
+            <figure class="tall"><video src="images/IMG_0152.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video></figure>
+            <figure class="wide"><img src="images/pivot.jpeg" alt="Event coordination 1"></figure>
+            <!-- <figure><img src="images/nigerian.png" alt="Nigerian cuisine 1"></figure> -->
+            
+            <!-- ROW 2: 3 regular images = 3 units -->
+            <figure><img src="images/sweetfood.jpg" alt="Event backdrop 1" style="filter: brightness(1.19);"></figure>
+            <figure class="tall"><video src="images/IMG_0056.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></figure>
+            <!-- <figure><img src="images/phone.png" alt="Event coordination 2"></figure> -->
+            
+            <!-- ROW 3: 1 wide + 1 regular = 2+1 = 3 units -->
+            <figure class="wide"><img src="images/edge.jpeg" alt="Nigerian feast wide"></figure>
+            <figure class="tall">><video src="images/IMG_0054.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video></figure>
+            
+            <!-- ROW 4: 3 regular images = 3 units -->
+            <figure><img src="images/localdishes.jpg" alt="Catering service 3"></figure>
+            <figure class="tall"><video src="images/essential.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video></figure>
+            <figure><img src="images/vice.jpg" alt="Nigerian cuisine 2"></figure>
+            
+            <!-- ROW 5: 3 regular images = 3 units -->
+            <figure><img src="images/IMG_0011.jpg" alt="Event backdrop 3" style="filter: brightness(1.19);" ></figure>
+            <figure><img src="images/ginaparty1.jpg" alt="Catering service 4" style="filter: brightness(1.19);"></figure>
+            <figure><img src="images/outdoor.jpg" alt="Event coordination 4" style="filter: brightness(1.19);"></figure>
+            
+            <!-- ROW 6: 1 wide + 1 regular = 2+1 = 3 units -->
+            <figure class="tall"><img src="images/fresh.jpg" alt="Nigerian buffet wide"></figure>
+            <figure><img src="images/IMG-20250824-WA0016.jpg" alt="Event backdrop 4" style="filter: brightness(1.19);"></figure>
+            
+            <!-- ROW 7: 3 regular images = 3 units -->
+            <figure><img src="images/IMG-20250824-WA0015.jpg" alt="Catering service 5" style="filter: brightness(1.19);"></figure>
+            <figure class="wide"><img src="images/IMG-20250825-WA0005.jpg" alt="Event coordination 5" style="filter: brightness(1.19);"></figure>
+            <figure class="wide"><img src="images/array.jpg" alt="Nigerian cuisine 3" style="filter: brightness(1.08);"></figure>
+            
+            <!-- ROW 8: 3 regular images = 3 units -->
+            <figure><img src="images/IMG_0145.jpg" alt="Event backdrop 5"  style="filter: brightness(1.10);"></figure>
+           <figure class="tall"><video src="images/VID-20250825-WA0012.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video></figure>
+            <figure><img src="images/IMG_0005.jpg" alt="Event coordination 6"></figure>
+            
+            <!-- ROW 9: 1 wide + 1 regular = 2+1 = 3 units -->
+             <figure class="tall"><video src="images/IMG_0048.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video></figure>  
+            <figure><img src="images/catering.jpg" alt="Event backdrop 6"   style="filter: brightness(1.10);"></figure>
+            
+            <!-- ROW 10: 3 regular images = 3 units -->
+            <figure><img src="images/chefcap.png" alt="Catering service 7"></figure>
+            <figure><img src="images/phone.png" alt="Event coordination 7"></figure>
+            <figure><img src="images/nigerian.png" alt="Nigerian cuisine 4"></figure>
+            
+            <!-- TOTAL: 30 images, perfect tessellation, ZERO gaps -->
+        </div>
+    </section>
+
+
+
+
+
+
+
+<!-- Footer Section -->
+<footer>
+  <div class="footer-container">
+    <!-- Company Info -->
+    <div class="footer-section about">
+       <div class="logo bottomlogo">
+        <img src="images/chefcap.png" alt="Chef Cap" class="logo-icon" />
+        <div class="logo-text">
+          <div class="logo-title"><span>Gina</span> Party Essence</div>
+          <div class="logo-subtitle">Catering & Events</div>
+        </div>
+      </div>
+      <p>
+        At Gina Party Essence, we believe every event deserves a touch of flavor and elegance. 
+        From intimate gatherings to grand celebrations, our passion is to deliver fresh, 
+        beautifully prepared dishes that turn moments into lasting memories. 
+        We’re not just catering food—we’re creating experiences.
+      </p>
+      <div class="contact">
+        <p><i class="fas fa-phone"></i> +12 12345678</p>
+        <p><i class="fas fa-envelope"></i> mail@domain.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> 1907 Pearl Street</p>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section links">
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-section newsletter">
+      <h2>Subscribe To Newsletters</h2>
+      <form>
+        <input type="email" placeholder="Your email id here" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>Copyright © 2025 | All Rights Reserved</p>
+  </div>
+</footer>
+
+
+
+
+<!-- FontAwesome CDN -->
+<!-- <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> -->
+
+
+
+
+
+
+  <script src="script.js" defer></script>
+<!--   
+<script>
+  const serviceImages = document.querySelectorAll('.service-image');
+  const heroImage = document.querySelector('.hero-image');
+  let startTime = null;
+
+  const frequency = 1 / 7; // Slower: 1 pulse every 10 seconds
+
+  function animate(time) {
+    if (!startTime) startTime = time;
+    const elapsed = (time - startTime) / 1000;
+
+    const brightness = 1.3 + 0.1 * Math.sin(elapsed * 2 * Math.PI * frequency); // 1.3–1.5
+    const scaleX = 1 + 0.025 * Math.sin(elapsed * 2 * Math.PI * frequency);     // 1–1.05
+
+    serviceImages.forEach(img => {
+      img.style.filter = `brightness(${brightness})`;
+      img.style.transform = `scaleX(${scaleX})`;
+    });
+
+    if (heroImage) {
+      heroImage.style.filter = `brightness(${brightness})`;
+      heroImage.style.transform = `scaleX(${scaleX})`;
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+</script> -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+Q for alignment centering vertically amd horizontally
+#dfe6eb              

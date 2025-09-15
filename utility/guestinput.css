@@ -1,0 +1,25 @@
+.guest-input-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.guest-input {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  outline: none; /* remove default focus style */
+}
+
+.guest-input:focus {
+  outline: none; /* no highlight at all */
+  border-color: #ccc; /* keep same border */
+  box-shadow: none; /* prevent any glow */
+}
+
+/* On mobile screens, center the input */
+@media (max-width: 768px) {
+  .guest-input-container {
+    justify-content: center;
+  }
+}

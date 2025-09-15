@@ -1,0 +1,329 @@
+
+
+:root {
+    --app-bg: #fff;
+    --modal-before: rgba(215,215,215,.5);
+    --main-font-color: #000;
+    --light-font-color: #becaca;
+    --main-border-color: #f3f3f3;
+    --secondary-border-color: #faeceb;
+    --button-bg-light: #f3f3f3;
+    --cards-area-bg: #f4f4f6;
+    --cards-bg: #fff;
+    --buttons-color-primary: #d84851;
+    --buttons-color-secondary: #f8e4e5;
+    --filter-bg: #fff;
+    --search-bg: #fff;
+}
+
+.dark:root {
+    --app-bg: #0c0c0c;
+    --main-font-color: #fff;
+    --cards-area-bg: #20222a;
+    --cards-bg: #111317;
+    --filter-bg: #111317;
+    --search-bg: #20222a;
+    --modal-before: rgba(0, 0, 0, .8);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--app-bg);
+}
+
+.app-main {
+    flex: 1;
+    overflow: hidden;
+    padding: 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards-area {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100vh;
+    overflow-y: auto;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.app-main-left {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+}
+
+.dish-category {
+    margin-bottom: 2rem;
+}
+
+.category-header {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.swiper-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    position: relative;
+    height: auto;
+}
+
+.swiper-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 0 8px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+}
+
+.swiper-slide.active {
+    opacity: 1;
+    position: relative;
+}
+
+.card-wrapper {
+    padding: 8px;
+}
+
+.card {
+    overflow: hidden;
+    display: block;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-image-wrapper {
+    height: 14rem;
+    overflow: hidden;
+    background-color: #FAACA8;
+    background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+    position: relative;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-info {
+    padding: 8px 16px;
+}
+
+.card-text {
+    line-height: 24px;
+}
+
+.card-text.big {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--light-font-color);
+}
+
+.card-text.small {
+    font-size: 12px;
+    color: var(--light-font-color);
+    font-weight: 600;
+}
+
+.boook-btn {
+    background-color:#8B0000;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.boook-btn:hover {
+    background-color: darkred;
+}
+
+
+.card-text.small span {
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.swiper-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 8px;
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet.active {
+    background-color: var(--buttons-color-primary);
+    transform: scale(1.2);
+}
+
+.app-main-right {
+    flex: 2;
+    margin-left: 24px;
+    max-width: 400px;
+}
+
+.app-main-right .card-image-wrapper {
+    max-height: 100%;
+    padding: 0;
+    height: 100%;
+}
+
+.app-main-right .card {
+    height: 160px;
+}
+
+.app-main-right .card-image-wrapper img {
+    margin: 0;
+}
+
+.app-main-right-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    color: white;
+}
+
+.app-main-right-header span {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.app-main-right {
+    position: relative;
+    padding-top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 0.5rem;
+    height: fit-content;
+}
+
+.app-main-right .card-wrapper {
+    width: 100%;
+    padding: 8px 0;
+}
+
+.app-main-right .card {
+    display: flex;
+}
+
+.app-main-right .card-image-wrapper {
+    flex-basis: 40%;
+    flex-shrink: 0;
+    height: auto;
+}
+
+.app-main-right .card-image-wrapper img {
+    height: 100%;
+}
+
+@media screen and (max-width: 1020px) {
+    .swiper-slide {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .app-main-right-header span {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .app-main-right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .swiper-slide {
+        grid-template-columns: 1fr;
+    }
+
+    .cards-area {
+        padding: 0 8px;
+    }
+
+    .app-main {
+        padding: 24px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .app-main {
+        flex: unset;
+    }
+
+    .card:hover {
+        transform: scale(1);
+    }
+
+    section.app-main {
+        overflow: visible;
+    }
+}
+
+
+
+/* Scrollbar styling for .app-main-left */
+.app-main-left {
+    scrollbar-width: thin;              /* Firefox */
+    scrollbar-color: #FFB6C1 transparent; /* Thumb + Track colors */
+    padding-top: 1.5rem;
+}
+
+/* WebKit Browsers (Chrome, Edge, Safari, Opera) */
+.app-main-left::-webkit-scrollbar {
+    width: 8px;             /* Slim width */
+}
+
+.app-main-left::-webkit-scrollbar-track {
+    background: transparent; /* Track transparent */
+}
+
+.app-main-left::-webkit-scrollbar-thumb {
+    background-color: #8B0000;  /* Dark red thumb */
+    border-radius: 10px;        /* Rounded edges */
+    border: 2px solid transparent; /* Adds slim look */
+    background-clip: content-box;
+}
+
+.app-main-left::-webkit-scrollbar-thumb:hover {
+    background-color: #A52A2A; /* Lighter red on hover */
+}
