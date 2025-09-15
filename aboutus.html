@@ -248,8 +248,57 @@ window.smartsupp||(function(d) {
   </div>
 </div>
 
+  
+    <!-- Preloader Script -->
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const preloader = document.getElementById("preloader");
+  const progressBar = preloader.querySelector(".progress-bar");
+  const assets = [
+    ...document.images,
+    ...document.querySelectorAll("video")
+  ];
+  let loadedCount = 0;
+  const totalAssets = assets.length;
+  
+  if (totalAssets === 0) {
+    // No assets to load
+    finishLoading();
+  } else {
+    assets.forEach(asset => {
+      if (asset.complete) {
+        incrementProgress();
+      } else {
+        asset.addEventListener("load", incrementProgress);
+        asset.addEventListener("error", incrementProgress);
+        if (asset.tagName.toLowerCase() === "video") {
+          asset.addEventListener("loadeddata", incrementProgress);
+        }
+      }
+    });
+  }
+  
+  function incrementProgress() {
+    loadedCount++;
+    const percent = Math.round((loadedCount / totalAssets) * 100);
+    progressBar.style.width = percent + "%";
+    
+    if (loadedCount === totalAssets) {
+      finishLoading();
+    }
+  }
+  
+  function finishLoading() {
+    setTimeout(() => {
+      preloader.classList.add("fade-out");
+    }, 300); // small delay for smoothness
+  }
+});
+</script>
+
 
 </body>
 </html>
+
 
 
