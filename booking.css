@@ -1,5 +1,3 @@
-
-
 :root {
     --app-bg: #fff;
     --modal-before: rgba(215,215,215,.5);
@@ -96,7 +94,7 @@ body {
 }
 
 .card-wrapper {
-    padding: 8px;
+    
 }
 
 .card {
@@ -147,7 +145,7 @@ body {
     font-weight: 600;
 }
 
-.boook-btn {
+.book-btn {
     background-color:#8B0000;
     color: white;
     border: none;
@@ -163,7 +161,6 @@ body {
 .boook-btn:hover {
     background-color: darkred;
 }
-
 
 .card-text.small span {
     font-size: 12px;
@@ -193,24 +190,17 @@ body {
     transform: scale(1.2);
 }
 
+/* App Main Right - Exclusive Packages Section */
 .app-main-right {
     flex: 2;
     margin-left: 24px;
     max-width: 400px;
-}
-
-.app-main-right .card-image-wrapper {
-    max-height: 100%;
-    padding: 0;
-    height: 100%;
-}
-
-.app-main-right .card {
-    height: 160px;
-}
-
-.app-main-right .card-image-wrapper img {
-    margin: 0;
+    position: relative;
+    padding-top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 0.5rem;
+    height: 50rem;
 }
 
 .app-main-right-header {
@@ -219,6 +209,8 @@ body {
     align-items: center;
     padding: 16px 0;
     color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
 }
 
 .app-main-right-header span {
@@ -227,79 +219,121 @@ body {
     font-weight: 600;
 }
 
-.app-main-right {
-    position: relative;
-    padding-top: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
-    padding: 0.5rem;
-    height: fit-content;
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
 }
 
+/* Scrollable content area */
+#featured-dishes {
+    max-height: 100%;
+    overflow-y: auto;
+    padding-right: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #8B0000 transparent;
+}
+
+#featured-dishes::-webkit-scrollbar {
+    width: 6px;
+}
+
+#featured-dishes::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#featured-dishes::-webkit-scrollbar-thumb {
+    background-color: #8B0000;
+    border-radius: 3px;
+}
+
+#featured-dishes::-webkit-scrollbar-thumb:hover {
+    background-color: #A52A2A;
+}
+
+/* Card styling for app-main-right */
 .app-main-right .card-wrapper {
     width: 100%;
-    padding: 8px 0;
+    margin-bottom: 1rem;
 }
 
 .app-main-right .card {
     display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.app-main-right .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .app-main-right .card-image-wrapper {
-    flex-basis: 40%;
-    flex-shrink: 0;
-    height: auto;
+    overflow: hidden;
+    background-color: #FAACA8;
+    background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+    position: relative;
 }
 
 .app-main-right .card-image-wrapper img {
+    width: 100%;
     height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-@media screen and (max-width: 1020px) {
-    .swiper-slide {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .app-main-right-header span {
-        font-size: 14px;
-    }
+.app-main-right .card-info {
+    padding: 12px 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
 }
 
-@media screen and (max-width: 990px) {
-    .app-main-right {
-        display: none;
-    }
+.app-main-right .card-text.big {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 4px;
 }
 
-@media screen and (max-width: 600px) {
-    .swiper-slide {
-        grid-template-columns: 1fr;
-    }
-
-    .cards-area {
-        padding: 0 8px;
-    }
-
-    .app-main {
-        padding: 24px;
-    }
+.app-main-right .card-text.small {
+    font-size: 12px;
+    color: var(--light-font-color);
+    font-weight: 500;
+    margin-bottom: 2px;
 }
 
-@media screen and (max-width: 520px) {
-    .app-main {
-        flex: unset;
-    }
-
-    .card:hover {
-        transform: scale(1);
-    }
-
-    section.app-main {
-        overflow: visible;
-    }
+.app-main-right .card-price {
+    color: #FFB6C1;
+    font-weight: 700;
+    font-size: 14px;
 }
 
+.app-main-right .book-btn {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-top: 8px;
+    transition: background 0.3s ease;
+    font-weight: 600;
+}
 
+.app-main-right .book-btn:hover {
+    background-color: #A52A2A;
+}
 
 /* Scrollbar styling for .app-main-left */
 .app-main-left {
@@ -326,4 +360,181 @@ body {
 
 .app-main-left::-webkit-scrollbar-thumb:hover {
     background-color: #A52A2A; /* Lighter red on hover */
+}
+
+.checkout-btn {
+  display: inline-block;
+  background:#8B0000;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.checkout-btn:hover{
+     background: #ff4d4f;
+}
+
+/* Container styles */
+.checkout-container {
+  width: 100%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 1020px) {
+    .swiper-slide {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .app-main-right {
+        max-width: 350px;
+        margin-left: 16px;
+    }
+    
+    .app-main-right-header span {
+        font-size: 20px;
+    }
+    
+    #featured-dishes {
+        max-height: 350px;
+    }
+}
+
+/* Mobile styles - Make visible and adjust layout */
+@media screen and (max-width: 990px) {
+    .app-main-right {
+        display: block; /* Override the display: none */
+        flex: none;
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        margin-top: 2rem;
+        height: auto;
+    }
+    
+    .app-main {
+        flex-direction: column;
+    }
+    
+    .app-main-left {
+        margin-bottom: 0;
+    }
+    
+    #featured-dishes {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        max-height: none;
+        padding-bottom: 8px;
+        gap: 1rem;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .app-main-right .card-wrapper {
+        flex-shrink: 0;
+        width: 200px;
+        margin-bottom: 0;
+        scroll-snap-align: start;
+    }
+    
+    .app-main-right .card {
+        height: 280px;
+    }
+    
+    .app-main-right .card-image-wrapper {
+        height: 140px;
+    }
+    
+    /* Custom scrollbar for horizontal scroll */
+    #featured-dishes::-webkit-scrollbar {
+        height: 6px;
+        width: auto;
+    }
+    
+    #featured-dishes::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+    }
+    
+    #featured-dishes::-webkit-scrollbar-thumb {
+        background-color: #8B0000;
+        border-radius: 3px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .swiper-slide {
+        grid-template-columns: 1fr;
+    }
+
+    .cards-area {
+        padding: 0 8px;
+    }
+
+    .app-main {
+        padding: 24px;
+    }
+    
+    .app-main-right .card-wrapper {
+        width: 180px;
+    }
+    
+    .app-main-right .card {
+        height: 260px;
+    }
+    
+    .app-main-right .card-image-wrapper {
+        height: 120px;
+    }
+    
+    .app-main-right .card-info {
+        padding: 10px 12px;
+    }
+    
+    .app-main-right .card-text.big {
+        font-size: 14px;
+    }
+    
+    .app-main-right .book-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    /* Mobile: center button */
+    .checkout-container {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .app-main {
+        flex: unset;
+    }
+
+    .card:hover {
+        transform: scale(1);
+    }
+
+    section.app-main {
+        overflow: visible;
+    }
+    
+    .app-main-right .card-wrapper {
+        width: 160px;
+    }
+    
+    .app-main-right .card {
+        height: 240px;
+    }
+    
+    .app-main-right .card-image-wrapper {
+        height: 100px;
+    }
 }

@@ -1,197 +1,315 @@
-// Sample data for different dish categories
-const dishData = {
-    local: [
-        { name: "Jollof Rice", location: "Nigerian Cuisine", price: "$15", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Egusi Soup", location: "West African", price: "$18", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Suya", location: "Street Food", price: "$12", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Pounded Yam", location: "Traditional", price: "$20", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Akara", location: "Breakfast", price: "$8", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Moi Moi", location: "Steamed Beans", price: "$10", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Pepper Soup", location: "Spicy Broth", price: "$16", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Ofada Rice", location: "Local Rice", price: "$22", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Boli & Groundnut", location: "Roasted Plantain", price: "$7", image: "https://testing-e9428.web.app/images/localdish.jpg" }
-    ],
-    corporate: [
-        { name: "Grilled Chicken", location: "Premium Cut", price: "$25", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Beef Wellington", location: "Executive", price: "$45", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Salmon Teriyaki", location: "Asian Fusion", price: "$35", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Caesar Salad", location: "Fresh Garden", price: "$18", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Lobster Bisque", location: "Seafood Special", price: "$28", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Wagyu Steak", location: "Premium Beef", price: "$65", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Truffle Pasta", location: "Italian Classic", price: "$32", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Duck Confit", location: "French Cuisine", price: "$38", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Tuna Tartare", location: "Raw Delicacy", price: "$24", image: "https://testing-e9428.web.app/images/localdish.jpg" }
-    ],
-    intercontinental: [
-        { name: "Pad Thai", location: "Thai Cuisine", price: "$16", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Sushi Platter", location: "Japanese", price: "$42", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Paella Valenciana", location: "Spanish", price: "$36", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Butter Chicken", location: "Indian Curry", price: "$19", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Ramen Bowl", location: "Japanese Noodles", price: "$14", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Fish & Chips", location: "British Classic", price: "$17", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Tacos Al Pastor", location: "Mexican Street", price: "$13", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Coq au Vin", location: "French Bistro", price: "$29", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-        { name: "Peking Duck", location: "Chinese Roast", price: "$33", image: "https://testing-e9428.web.app/images/localdish.jpg" }
-    ]
-};
+// booking-static.js - Interactions Only
 
-const featuredDishes = [
-    { name: "Chef's Special", location: "Signature Dish", price: "$55", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-    { name: "Today's Catch", location: "Fresh Seafood", price: "$40", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-    { name: "Fusion Delight", location: "Creative Cuisine", price: "$30", image: "https://testing-e9428.web.app/images/localdish.jpg" },
-    { name: "Comfort Classic", location: "Home Style", price: "$22", image: "https://testing-e9428.web.app/images/localdish.jpg" }
-];
-
-function createDishCard(dish) {
-    return `
-        <div class="card-wrapper">
-            <div class="card">
-                <div class="card-image-wrapper">
-                    <img src="${dish.image}" alt="${dish.name}">
-                </div>
-                <div class="card-info">
-                    <div class="card-text big" style="color:white;">${dish.name}</div>
-                    <div class="card-text small">Starts from: <span class="card-price">${dish.price}</span></div>
-                </div>
-                <button class="boook-btn" data-name="${dish.name}" data-price="${dish.price}">Book</button>
-            </div>
-        </div>
-    `;
-}
-
-
-function createSwiper(categoryName, dishes) {
-    const slides = [];
-    // Create 3 slides with 3 dishes each
-    for (let i = 0; i < 3; i++) {
-        const slideStart = i * 3;
-        const slideEnd = slideStart + 3;
-        const slideDishes = dishes.slice(slideStart, slideEnd);
-        slides.push(`
-            <div class="swiper-slide ${i === 0 ? 'active' : ''}" data-slide="${i}">
-                ${slideDishes.map(dish => createDishCard(dish)).join('')}
-            </div>
-        `);
+class SwiperController {
+    constructor(container) {
+        this.container = container;
+        this.slides = container.querySelectorAll('.swiper-slide');
+        this.bullets = container.querySelectorAll('.swiper-pagination-bullet');
+        this.currentSlide = 0;
+        this.isTransitioning = false;
+        this.autoSlideTimer = null;
+        
+        this.init();
     }
-    return `
-        <div class="dish-category">
-            <h2 class="category-header">${categoryName}</h2>
-            <div class="swiper-container" data-category="${categoryName.toLowerCase().replace(' ', '')}">
-                <div class="swiper-wrapper">
-                    ${slides.join('')}
-                </div>
-                <div class="swiper-pagination">
-                    <div class="swiper-pagination-bullet active" data-slide="0"></div>
-                    <div class="swiper-pagination-bullet" data-slide="1"></div>
-                    <div class="swiper-pagination-bullet" data-slide="2"></div>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-function initializeSwiper(container) {
-    const slides = container.querySelectorAll('.swiper-slide');
-    const bullets = container.querySelectorAll('.swiper-pagination-bullet');
-    let currentSlide = 0;
-    let autoSlideInterval;
-
-    function showSlide(index) {
-        if (index === currentSlide) return;
-
-        const outgoingSlide = slides[currentSlide];
-        const incomingSlide = slides[index];
-
-        // Bring incoming to front
-        incomingSlide.style.zIndex = 10;
-
-        // Start fading in incoming
-        incomingSlide.classList.add('active');
-
-        // Start fading out outgoing
-        outgoingSlide.classList.remove('active');
-
-        // Update bullets
-        bullets[currentSlide].classList.remove('active');
-        bullets[index].classList.add('active');
-
-        // After transition, reset z-index
+    
+    init() {
+        this.attachEventListeners();
+        this.startAutoSlide();
+        console.log(`Swiper initialized with ${this.slides.length} slides`);
+    }
+    
+    startAutoSlide() {
+        this.autoSlideTimer = setInterval(() => {
+            const nextSlide = (this.currentSlide + 1) % this.slides.length;
+            this.showSlide(nextSlide);
+        }, 10000);
+    }
+    
+    resetAutoSlide() {
+        clearInterval(this.autoSlideTimer);
+        this.startAutoSlide();
+    }
+    
+    attachEventListeners() {
+        // Pagination bullets
+        this.bullets.forEach((bullet, index) => {
+            bullet.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.showSlide(index);
+                this.resetAutoSlide(); // Reset timer on manual interaction
+            });
+            
+            // Hover effects
+            bullet.addEventListener('mouseenter', () => {
+                if (!bullet.classList.contains('active')) {
+                    bullet.classList.add('hover');
+                }
+            });
+            
+            bullet.addEventListener('mouseleave', () => {
+                bullet.classList.remove('hover');
+            });
+        });
+        
+        // Touch/swipe support
+        this.addSwipeSupport();
+    }
+    
+    showSlide(index) {
+        if (index === this.currentSlide || this.isTransitioning || index < 0 || index >= this.slides.length) {
+            return;
+        }
+        
+        this.isTransitioning = true;
+        
+        // Remove active states
+        this.slides[this.currentSlide].classList.remove('active');
+        this.bullets[this.currentSlide].classList.remove('active');
+        
+        // Add active states
+        this.slides[index].classList.add('active');
+        this.bullets[index].classList.add('active');
+        
+        this.currentSlide = index;
+        
+        // Reset transition lock
         setTimeout(() => {
-            incomingSlide.style.zIndex = '';
-        }, 1000); // match transition time
-
-        currentSlide = index;
+            this.isTransitioning = false;
+        }, 300);
     }
-
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-            const nextSlide = (currentSlide + 1) % 3;
-            showSlide(nextSlide);
-        }, 8000);
+    
+    addSwipeSupport() {
+        let startX = 0;
+        let startY = 0;
+        let isDragging = false;
+        
+        // Touch events
+        this.container.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isDragging = true;
+        }, { passive: true });
+        
+        this.container.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            
+            // If vertical movement is greater, it's a scroll
+            if (Math.abs(currentY - startY) > Math.abs(currentX - startX)) {
+                isDragging = false;
+                return;
+            }
+            
+            // Prevent default horizontal scrolling
+            e.preventDefault();
+        }, { passive: false });
+        
+        this.container.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            const minSwipeDistance = 50;
+            
+            if (Math.abs(diffX) > minSwipeDistance) {
+                if (diffX > 0) {
+                    // Swipe left - next slide
+                    const nextSlide = (this.currentSlide + 1) % this.slides.length;
+                    this.showSlide(nextSlide);
+                } else {
+                    // Swipe right - previous slide
+                    const prevSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+                    this.showSlide(prevSlide);
+                }
+                this.resetAutoSlide(); // Reset timer on swipe
+            }
+            
+            isDragging = false;
+        }, { passive: true });
     }
+}
 
-    function stopAutoSlide() {
-        if (autoSlideInterval) {
-            clearInterval(autoSlideInterval);
+class BookingManager {
+    constructor() {
+        this.setupGlobalBookingHandler();
+        this.initializeProceedToCheckout();
+    }
+    
+    setupGlobalBookingHandler() {
+        console.log('Setting up global booking handler...');
+        
+        document.addEventListener('click', (e) => {
+            const bookButton = e.target.closest('.boook-btn');
+            if (!bookButton) return;
+            
+            // Prevent multiple clicks
+            if (bookButton.disabled || bookButton.dataset.processing === 'true') {
+                return;
+            }
+            
+            bookButton.dataset.processing = 'true';
+            bookButton.disabled = true;
+            
+            const dishData = {
+                name: bookButton.getAttribute('data-name'),
+                price: bookButton.getAttribute('data-price'),
+                location: bookButton.getAttribute('data-location'),
+                image: bookButton.getAttribute('data-image'),
+                quantity: 1
+            };
+            
+            this.processBooking(bookButton, dishData);
+        });
+    }
+    
+    processBooking(bookButton, dishData) {
+        console.log('Processing booking for:', dishData);
+        
+        // Visual feedback
+        const originalText = bookButton.innerHTML;
+        const originalBg = bookButton.style.backgroundColor;
+        
+        // Add processing state via CSS class
+        bookButton.classList.add('booking-processing');
+        bookButton.innerHTML = '<span>Adding...</span>';
+        
+        // Add to booking system
+        if (window.BookingBridge) {
+            try {
+                const result = window.BookingBridge.addBooking(dishData);
+                console.log('Successfully added to BookingBridge:', result);
+                
+                // Success feedback
+                bookButton.classList.remove('booking-processing');
+                bookButton.classList.add('booking-success');
+                bookButton.innerHTML = '<span>Added!</span>';
+                
+                // Reset after feedback
+                setTimeout(() => {
+                    bookButton.innerHTML = originalText;
+                    bookButton.classList.remove('booking-success');
+                    this.resetButton(bookButton);
+                }, 1500);
+                
+            } catch (error) {
+                console.error('Error adding to BookingBridge:', error);
+                
+                // Error feedback
+                bookButton.classList.remove('booking-processing');
+                bookButton.classList.add('booking-error');
+                bookButton.innerHTML = '<span>Error!</span>';
+                
+                setTimeout(() => {
+                    bookButton.innerHTML = originalText;
+                    bookButton.classList.remove('booking-error');
+                    this.resetButton(bookButton);
+                }, 2000);
+            }
+        } else {
+            console.warn('BookingBridge not available');
+            alert('Booking system not ready. Please refresh the page.');
+            
+            bookButton.innerHTML = originalText;
+            bookButton.classList.remove('booking-processing');
+            this.resetButton(bookButton);
         }
     }
-
-    // Manual navigation
-    bullets.forEach((bullet, index) => {
-        bullet.addEventListener('click', () => {
-            if (index !== currentSlide) {
-                stopAutoSlide();
-                showSlide(index);
-                // Restart auto-slide after manual interaction
-                setTimeout(startAutoSlide, 6000);
+    
+    resetButton(button) {
+        button.dataset.processing = 'false';
+        button.disabled = false;
+    }
+    
+    initializeProceedToCheckout() {
+        document.addEventListener('click', (e) => {
+            const checkoutButton = e.target.closest('[data-proceed-checkout], .proceed-checkout-btn, .checkout-btn');
+            if (!checkoutButton && !e.target.textContent.toLowerCase().includes('proceed to checkout')) {
+                return;
+            }
+            
+            const targetButton = checkoutButton || e.target;
+            
+            // Prevent multiple clicks
+            if (targetButton.dataset.processing === 'true') return;
+            targetButton.dataset.processing = 'true';
+            
+            console.log('Proceed to checkout clicked');
+            
+            try {
+                if (window.BookingBridge && window.BookingBridge.hasPendingBookings()) {
+                    targetButton.classList.add('loading');
+                    setTimeout(() => {
+                        window.location.href = 'checkout.html';
+                    }, 200);
+                } else {
+                    console.log('No pending bookings or BookingBridge not available');
+                    alert('No items in cart. Please add items before proceeding to checkout.');
+                    targetButton.dataset.processing = 'false';
+                }
+            } catch (error) {
+                console.error('Error proceeding to checkout:', error);
+                targetButton.dataset.processing = 'false';
+                targetButton.classList.remove('loading');
             }
         });
-    });
-
-    // Pause auto-slide on hover
-    container.addEventListener('mouseenter', stopAutoSlide);
-    container.addEventListener('mouseleave', startAutoSlide);
-
-    // Start auto-slide
-    startAutoSlide();
+    }
 }
 
-function populateMainContent() {
-    const mainLeft = document.querySelector('.app-main-left');
-    mainLeft.innerHTML = `
-        ${createSwiper('Local Dishes', dishData.local)}
-        ${createSwiper('Corporate Dishes', dishData.corporate)}
-        ${createSwiper('Intercontinental Dishes', dishData.intercontinental)}
-    `;
-    // Initialize swipers
-    document.querySelectorAll('.swiper-container').forEach(initializeSwiper);
-}
-
-function populateFeaturedDishes() {
-    const featuredContainer = document.getElementById('featured-dishes');
-    featuredContainer.innerHTML = featuredDishes.map(dish => `
-        <div class="card-wrapper">
-            <a class="card" onclick="openModal('${dish.name}')">
-                <div class="card-image-wrapper">
-                    <img src="${dish.image}" alt="${dish.name}">
-                </div>
-                <div class="card-info">
-                    <div class="card-text big">${dish.name}</div>
-                    <div class="card-text small">${dish.location}</div>
-                    <div class="card-text small"> Starts from: <span class="card-price">${dish.price}</span> </div>
-                </div>
-            </a>
-        </div>
-    `).join('');
-}
-
-function openModal(dishName) {
-    alert(`Opening details for: ${dishName}`);
-    // Here you would typically open a modal or navigate to a detail page
-}
-
-// Initialize the app
+// Main initialization
 document.addEventListener('DOMContentLoaded', () => {
-    populateMainContent();
-    populateFeaturedDishes();
+    // Prevent multiple initializations
+    if (window.bookingStaticInitialized) {
+        console.log('App already initialized, skipping...');
+        return;
+    }
+    
+    window.bookingStaticInitialized = true;
+    console.log('Initializing static booking app...');
+    
+    try {
+        // Initialize all swiper containers
+        const swiperContainers = document.querySelectorAll('.swiper-container');
+        console.log(`Found ${swiperContainers.length} swiper containers`);
+        
+        swiperContainers.forEach((container, index) => {
+            console.log(`Initializing swiper ${index + 1}`);
+            new SwiperController(container);
+        });
+        
+        // Initialize booking manager
+        new BookingManager();
+        
+        // Initialize BookingBridge if available
+        if (window.BookingBridge && typeof window.BookingBridge.init === 'function') {
+            console.log('BookingBridge found, initializing...');
+            window.BookingBridge.init();
+        } else {
+            console.warn('BookingBridge not found. Make sure BookingBridge.js is loaded first.');
+        }
+        
+        console.log('Static booking app initialization complete');
+        
+    } catch (error) {
+        console.error('Error during app initialization:', error);
+        window.bookingStaticInitialized = false;
+    }
 });
+
+// Global error handler
+window.addEventListener('error', (e) => {
+    console.error('Global error caught:', e.error);
+});
+
+// Debug helper
+window.debugBookingStatic = function() {
+    console.log('=== STATIC BOOKING DEBUG INFO ===');
+    console.log('BookingBridge available:', !!window.BookingBridge);
+    console.log('Book buttons found:', document.querySelectorAll('.book-btn').length);
+    console.log('Swiper containers found:', document.querySelectorAll('.swiper-container').length);
+    console.log('Pagination bullets found:', document.querySelectorAll('.swiper-pagination-bullet').length);
+    console.log('Active slides:', document.querySelectorAll('.swiper-slide.active').length);
+    console.log('===============================');
+};
