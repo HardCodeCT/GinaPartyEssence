@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gina Party Essence</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+   <link rel="icon" href="images/chefcap.png" type="image/png">
+    <link rel="stylesheet" href="utility/wedding.css" />
+     <link rel="stylesheet" href="checkout.css" />
+    <script src="utilityjs/eventswriter.js" defer></script>
+    <script src="utilityjs/BookingBridge.js" defer></script>
+    <script src="checkout.js" defer></script>
+</head>
+<body>
+
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="progress-bar"></div>
+</div>
+
+  
+  <!-- Full-page background + dim overlay -->
+  <div class="background-image">
+    <div class="dim-overlay"></div>
+  </div>
+
+ <div class="topbar">
+  <div class="topbar-container">
+    <div class="contact-left">
+      <span class="contact-item">
+        <img src="images/mail.svg" alt="Email" class="contact-icon" />
+        ginapartyessence@gmail.com
+      </span>
+      <span class="contact-item">
+        <img src="images/phone.png" alt="Phone" class="contact-icon" />
+        +234 803 779 0070
+      </span>
+    </div>
+    <div class="social-right">
+      <img src="images/twitter.svg" alt="Twitter" class="social-icon" />
+      <img src="images/facebook.svg" alt="Facebook" class="social-icon" />
+      <img src="images/instagram.svg" alt="Instagram" class="social-icon" />
+    </div>
+  </div>
+</div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="images/chefcap.png" alt="Chef Cap" class="logo-icon" />
+        <div class="logo-text">
+          <div class="logo-title"><span>Gina</span> Party Essence</div>
+          <div class="logo-subtitle">Catering & Events</div>
+        </div>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="booking.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+      </ul>
+
+      <div class="lang-book">
+      <button class="book-btn">Booking</button>
+    </div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+
+
+<section class="cart-container">
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="cart-tbody">
+            <!-- Cart items will be populated by JavaScript -->
+        </tbody>
+    </table>
+
+    <div class="cart-actions">
+        <a href="#" class="btn-red-outline">← Back To Shop</a>
+        <button class="btn-silver" id="update-cart">⟳ Update cart</button>
+    </div>
+
+    <div class="cart-totals">
+        <div class="subtotal">Subtotal <span id="subtotal-amount">₦0.00</span></div>
+        <div class="total">Total <span id="total-amount">₦0.00</span></div>
+    </div>
+
+    <a href="#" class="btn-red">Proceed to checkout</a>
+</section>
+
+
+
+
+
+<!-- Footer Section -->
+<footer>
+  <div class="footer-container">
+    <!-- Company Info -->
+    <div class="footer-section about">
+       <div class="logo bottomlogo">
+        <img src="images/chefcap.png" alt="Chef Cap" class="logo-icon" />
+        <div class="logo-text">
+          <div class="logo-title"><span>Gina</span> Party Essence</div>
+          <div class="logo-subtitle">Catering & Events</div>
+        </div>
+      </div>
+      <p>
+        At Gina Party Essence, we believe every event deserves a touch of flavor and elegance. 
+        From intimate gatherings to grand celebrations, our passion is to deliver fresh, 
+        beautifully prepared dishes that turn moments into lasting memories. 
+        We’re not just catering food—we’re creating experiences.
+      </p>
+      <div class="contact">
+        <p><i class="fas fa-phone"></i> +12 12345678</p>
+        <p><i class="fas fa-envelope"></i> mail@domain.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> 1907 Pearl Street</p>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section links">
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="booking.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-section newsletter">
+      <h2>Subscribe To Newsletters</h2>
+      <form>
+        <input type="email" placeholder="Your email id here" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>Copyright © 2025 | All Rights Reserved</p>
+  </div>
+</footer>
+
+
+
+<div class="radar-bottom-bar">
+  <div class="radar-bottom-left">
+    <img src="images/booked.png" alt="icon" class="radar-bottom-left-icon">
+  </div>
+  <div class="">
+   <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '5ac445c2805d88b870a89128962849336d09c040';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+  </div>
+</div>
+
+
+
+<!-- FontAwesome CDN -->
+<!-- <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> -->
+
+
+
+
+
+
+  <script src="script.js" defer></script>
+<script>
+  const serviceImages = document.querySelectorAll('.service-image');
+  const heroImage = document.querySelector('.hero-image');
+  let startTime = null;
+
+  const frequency = 1 / 7; // Slower: 1 pulse every 10 seconds
+
+  function animate(time) {
+    if (!startTime) startTime = time;
+    const elapsed = (time - startTime) / 1000;
+
+    const brightness = 1.3 + 0.1 * Math.sin(elapsed * 2 * Math.PI * frequency); // 1.3–1.5
+    const scaleX = 1 + 0.025 * Math.sin(elapsed * 2 * Math.PI * frequency);     // 1–1.05
+
+    serviceImages.forEach(img => {
+      img.style.filter = `brightness(${brightness})`;
+      img.style.transform = `scaleX(${scaleX})`;
+    });
+
+    if (heroImage) {
+      heroImage.style.filter = `brightness(${brightness})`;
+      heroImage.style.transform = `scaleX(${scaleX})`;
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+</script>
+
+
+  
+    <!-- Preloader Script -->
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const preloader = document.getElementById("preloader");
+  const progressBar = preloader.querySelector(".progress-bar");
+  const assets = [
+    ...document.images,
+    ...document.querySelectorAll("video")
+  ];
+  let loadedCount = 0;
+  const totalAssets = assets.length;
+  
+  if (totalAssets === 0) {
+    // No assets to load
+    finishLoading();
+  } else {
+    assets.forEach(asset => {
+      if (asset.complete) {
+        incrementProgress();
+      } else {
+        asset.addEventListener("load", incrementProgress);
+        asset.addEventListener("error", incrementProgress);
+        if (asset.tagName.toLowerCase() === "video") {
+          asset.addEventListener("loadeddata", incrementProgress);
+        }
+      }
+    });
+  }
+  
+  function incrementProgress() {
+    loadedCount++;
+    const percent = Math.round((loadedCount / totalAssets) * 100);
+    progressBar.style.width = percent + "%";
+    
+    if (loadedCount === totalAssets) {
+      finishLoading();
+    }
+  }
+  
+  function finishLoading() {
+    setTimeout(() => {
+      preloader.classList.add("fade-out");
+    }, 300); // small delay for smoothness
+  }
+});
+</script>
+
+
+
+
+</body>
+</html>
