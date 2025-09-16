@@ -159,7 +159,7 @@ class ShoppingCart {
             newRow.innerHTML = `
                 <td class="product-info">
                     <img src="${imageUrl}" alt="Product" style="width: 60px; height: 60px; object-fit: cover;">
-                    <a href="#" style="text-decoration: none; color: #333;">${name}</a>
+                    <a href="#" style="text-decoration: none; color: white;">${name}</a>
                 </td>
                 <td class="flash">₦${numericPrice.toLocaleString()}.00</td>
                 <td>
@@ -481,4 +481,5 @@ document.addEventListener('visibilitychange', function() {
         console.log('Page became visible, checking for new bookings...');
         setTimeout(processBookedItems, 300);
     }
+
 });
