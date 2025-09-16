@@ -1,0 +1,569 @@
+/* swiper.css - Responsive Swiper animations and states */
+
+/* Swiper Container */
+.swiper-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+/* Swiper Wrapper */
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+/* Swiper Slides - Desktop (3x3 grid) */
+.swiper-slide {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+/* Active slide */
+.swiper-slide.active {
+    display: grid;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide enter animation */
+.swiper-slide.active {
+    animation: slideIn 0.4s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pagination */
+.swiper-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.5rem;
+}
+
+/* Pagination Bullets */
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Active bullet */
+.swiper-pagination-bullet.active {
+    background-color: #ff6b35;
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.4);
+    transform: scale(1.2);
+}
+
+/* Hover effect */
+.swiper-pagination-bullet.hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+}
+
+/* Bullet ripple effect */
+.swiper-pagination-bullet::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 107, 53, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet.active::before {
+    width: 200%;
+    height: 200%;
+}
+
+/* Category Header */
+.category-header {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.category-header::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b35, #f9ca24);
+    border-radius: 2px;
+}
+
+/* Book Button States */
+.boook-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    width: 100%;
+    background: #8B0000;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    padding: 0.7rem;
+}
+
+.boook-btn span{
+    color: white;
+}
+
+/* Processing state */
+.boook-btn.booking-processing {
+    background-color: #ffc107 !important;
+    color: #333;
+    cursor: not-allowed;
+}
+
+.boook-btn.booking-processing::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Success state */
+.boook-btn.booking-success {
+    background-color: #28a745 !important;
+    color: white;
+    transform: scale(1.05);
+}
+
+.boook-btn.booking-success::before {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: checkmark 0.5s ease forwards;
+}
+
+@keyframes checkmark {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.3);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Error state */
+.boook-btn.booking-error {
+    background-color: #dc3545 !important;
+    color: white;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 20%, 40%, 60%, 80% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+}
+
+/* Checkout button loading state */
+.checkout-btn.loading {
+    opacity: 0.7;
+    transform: scale(0.98);
+    pointer-events: none;
+}
+
+.checkout-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Card hover effects */
+.card-wrapper {
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.card-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.card-wrapper:hover .card {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Card sizing for different screens */
+.card {
+    width: 100%;
+    height: auto;
+    min-height: 320px;
+}
+
+.card-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(1.30);
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Large Desktop (1200px+) - 3x3 grid */
+@media (min-width: 1200px) {
+    .swiper-slide {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .card {
+        min-height: 350px;
+    }
+    
+    .card-image-wrapper {
+        height: 220px;
+    }
+}
+
+/* Tablets & iPad (768px - 1199px) - 3x3 grid with smaller cards */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .swiper-slide {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+    
+    .card {
+        min-height: 280px;
+    }
+    
+    .card-image-wrapper {
+        height: 160px;
+    }
+    
+    .card-text.big {
+        font-size: 1rem;
+    }
+    
+    .card-text.small {
+        font-size: 0.85rem;
+    }
+    
+    .boook-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .category-header {
+        font-size: 1.6rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
+/* Small Tablets (600px - 767px) - 2x2 grid */
+@media (max-width: 767px) and (min-width: 600px) {
+    .swiper-slide {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .card {
+        min-height: 260px;
+    }
+    
+    .card-image-wrapper {
+        height: 140px;
+    }
+    
+    .card-text.big {
+        font-size: 0.95rem;
+    }
+    
+    .card-text.small {
+        font-size: 0.8rem;
+    }
+    
+    .boook-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .category-header {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Mobile (320px - 599px) - Single column vertical layout with swiper */
+@media (max-width: 599px) {
+    .swiper-slide {
+        display: none; /* Keep swiper functionality */
+        grid-template-columns: 1fr; /* Single column */
+        gap: 1rem;
+        opacity: 0;
+        transform: translateX(30px);
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .swiper-slide.active {
+        display: grid; /* Show active slide */
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    /* Keep pagination visible on mobile */
+    .swiper-pagination {
+        display: flex;
+        margin-top: 1rem;
+        gap: 0.4rem;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+    }
+    
+    /* Stack cards vertically in single column */
+    .card-wrapper {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    
+    .card {
+        min-height: 240px;
+        max-width: 100%;
+    }
+    
+    .card-image-wrapper {
+        height: 14rem;
+    }
+
+    .card-image-wrapper img{
+        height: 14rem;
+    }
+    .card-text.big {
+        font-size: 0.9rem;
+    }
+    
+    .card-text.small {
+        font-size: 0.75rem;
+    }
+    
+    .boook-btn {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8rem;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .category-header {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .category-header::after {
+        width: 40px;
+        height: 2px;
+        bottom: -6px;
+    }
+    
+    /* Remove hover effects on mobile */
+    .card-wrapper:hover {
+        transform: none;
+    }
+    
+    .card-wrapper:hover .card {
+        box-shadow: none;
+    }
+}
+
+/* Extra Small Mobile (320px - 479px) */
+@media (max-width: 479px) {
+    .swiper-container {
+        margin-bottom: 1.5rem;
+    }
+    
+    .card {
+        min-height: 220px;
+    }
+    
+    .card-image-wrapper {
+        height: 14rem;
+    }
+
+    .card-image-wrapper img{
+        height: 14rem;
+    }
+    
+    .card-text.big {
+        font-size: 0.85rem;
+    }
+    
+    .card-text.small {
+        font-size: 0.7rem;
+    }
+    
+    .boook-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .category-header {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* Touch feedback */
+.swiper-container {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Smooth scroll behavior */
+.swiper-wrapper {
+    scroll-behavior: smooth;
+}
+
+/* Loading states for images */
+.card-image-wrapper img[src=""] {
+    opacity: 0;
+}
+
+/* Focus states for accessibility */
+.swiper-pagination-bullet:focus {
+    outline: 2px solid #ff6b35;
+    outline-offset: 2px;
+}
+
+.boook-btn:focus {
+    outline: 2px solid #ff6b35;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .swiper-pagination-bullet {
+        border: 2px solid currentColor;
+    }
+    
+    .swiper-pagination-bullet.active {
+        background-color: currentColor;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .swiper-slide,
+    .swiper-pagination-bullet,
+    .boook-btn,
+    .card-wrapper {
+        transition: none;
+        animation: none;
+    }
+    
+    .swiper-slide.active {
+        animation: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .swiper-pagination {
+        display: none;
+    }
+    
+    .swiper-slide {
+        display: grid !important;
+        opacity: 1 !important;
+        transform: none !important;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        page-break-inside: avoid;
+    }
+    
+    .card-wrapper {
+        page-break-inside: avoid;
+    }
+}
