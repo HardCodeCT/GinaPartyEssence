@@ -99,7 +99,7 @@ body.menu-open section {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-image: url('https://testing-e9428.web.app/images/background.jpg');
+  background-image: url('https://testing-e9428.web.app/images/newbackground.jpg');
   background-size: cover;
   background-position: center;
   z-index: -2;
@@ -985,4 +985,5 @@ footer {
     font-size: 1.3rem;
   }
 }
+
 
