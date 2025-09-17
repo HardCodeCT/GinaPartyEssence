@@ -24,8 +24,6 @@
 }
 
 
-
-
 body, html {
     scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -916,6 +914,18 @@ footer {
   color: #bbb;
 }
 
+
+.radar-bottom-left-count {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 0.3rem;
+  font-size: 1.5rem;  /* adjust size */
+  font-weight: bold;
+  color: white;       /* pick your color */
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
 
@@ -985,5 +995,6 @@ footer {
     font-size: 1.3rem;
   }
 }
+
 
 
